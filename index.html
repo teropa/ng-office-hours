@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
-<body ng-app="myApp">
+<body ng-app="myApp" ng-controller="MyController as myCtrl">
 
-  <expandable-section section-title="Click to open"
-                      section-body="Section body">
+  <expandable-section section-title="myCtrl.myTitle"
+                      section-body="myCtrl.myBody">
   </expandable-section>
 
-  <expandable-section section-title="Click to open second"
-                      section-body="Second body">
+  <expandable-section section-title="'Click to open second'"
+                      section-body="'Second body'">
   </expandable-section>
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>

@@ -5,10 +5,11 @@ app.directive('expandableSection', function() {
     restrict: 'E',
     template: '<section><h2>{{title}}</h2><article>{{body}}</article></section>',
     replace: true,
-    scope: true,
-    link: function($scope, $element, $attrs) {
-      $scope.title = $attrs.sectionTitle;
-      $scope.body = $attrs.sectionBody;
+    scope: {
+      title: '@sectionTitle',
+      body: '@sectionBody'
+    },
+    link: function($scope, $element) {
       $element.find('article').hide();
       $element.find('h2').click(function() {
         $element.find('article').toggle();

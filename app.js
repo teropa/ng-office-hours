@@ -5,8 +5,8 @@ app.controller('MyController', function() {
   this.myTitle = 'Dynamic title';
   this.myBody = 'Dynamic body';
 
-  this.aFunction = function() {
-    console.log('Called', this);
+  this.aFunction = function(arg) {
+    console.log('Called', arg, this);
   };
 
 });
@@ -19,19 +19,19 @@ app.controller('ExpandableSectionController', function($scope, $element) {
 
 });
 
-app.directive('expandableSection', function() {
+app.directive('expandableSection', function($parse) {
   return {
     restrict: 'E',
     template: '<section><h2>{{title}}</h2><article>{{body}}</article></section>',
     replace: true,
     scope: {
       title: '=sectionTitle',
-      body: '=sectionBody',
-      someFunction: '&'
+      body: '=sectionBody'
     },
     controller: 'ExpandableSectionController',
-    link: function($scope) {
-      $scope.someFunction();
+    link: function($scope, $element, $attrs) {
+      var expr = $parse($attrs.someFunction);
+      expr($scope.$parent, {magicArgument: 42});
     }
   };
 });

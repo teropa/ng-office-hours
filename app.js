@@ -27,7 +27,7 @@ app.directive('expandableSection', function() {
     scope: {
       title: '=sectionTitle',
       body: '=sectionBody',
-      someFunction: '='
+      someFunction: '&'
     },
     controller: 'ExpandableSectionController',
     link: function($scope) {

@@ -5,6 +5,7 @@ app.directive('expandableSection', function() {
     restrict: 'E',
     template: '<section><h2>{{title}}</h2><article>{{body}}</article></section>',
     replace: true,
+    scope: true,
     link: function($scope, $element, $attrs) {
       $scope.title = $attrs.sectionTitle;
       $scope.body = $attrs.sectionBody;

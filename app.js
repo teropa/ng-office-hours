@@ -1,8 +1,10 @@
-$(function() {
+var app = angular.module('myApp', []);
 
-  $('[expandable-section] article').hide();
-  $('[expandable-section] h2').click(function() {
-    $(this).parent().find('article').toggle();
-  });
-
+app.directive('expandableSection', function() {
+  return function($scope, $element) {
+    $element.find('article').hide();
+    $element.find('h2').click(function() {
+      $element.find('article').toggle();
+    });
+  };
 });

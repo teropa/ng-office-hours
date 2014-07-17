@@ -16,7 +16,7 @@ app.directive('expandableSection', function() {
       title: '=sectionTitle',
       body: '=sectionBody'
     },
-    link: function($scope, $element) {
+    controller: function($scope, $element) {
       $element.find('article').hide();
       $element.find('h2').click(function() {
         $element.find('article').toggle();
